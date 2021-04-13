@@ -39,7 +39,7 @@ if( ! function_exists( 'fo_add_header' ) ) {
 				}
 			}
 			
-			// Not found, so add our value
+			// Not found, so add our value.
 			$values[] = $header_val;
 			$headers[ $header_key ] = implode( ', ', $values );
 			
@@ -48,7 +48,7 @@ if( ! function_exists( 'fo_add_header' ) ) {
 		} else {
 
 			// No existing Permission-Policy header, so add it.
-			$headers['Permissions-Policy'] = 'interest-cohort=()';		
+			$headers[ $header_key] = $header_val;		
 		}
 
 		return $headers;
