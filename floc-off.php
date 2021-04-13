@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       FloC off!
+ * Plugin Name:       FLoC off!
  * Description:       Disables FLoC tracking for your website's visitors.
  * Version:           1.0
  * Requires at least: 5.0
