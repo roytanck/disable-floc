@@ -19,6 +19,7 @@ If an existing 'interest-cohort' value is found, the plugin will not change that
 
 More information about FLoC can be found here:
 
+[Building a privacy-first future for web advertising](https://blog.google/products/ads-commerce/2021-01-privacy-sandbox/)
 [Google’s FLoC Is a Terrible Idea](https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea)
 [Block FLoC With Duckduckgo](https://spreadprivacy.com/block-floc-with-duckduckgo/)
 [Am I FLoCed?](https://www.eff.org/deeplinks/2021/04/am-i-floced-launch)
