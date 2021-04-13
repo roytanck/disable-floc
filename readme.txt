@@ -17,6 +17,12 @@ This plugin adds a HTTP header to your WordPress website that disables Google's 
 
 If an existing 'interest-cohort' value is found, the plugin will not change that value or add an additional one.
 
+More information about FLoC can be found here:
+
+[Google’s FLoC Is a Terrible Idea](https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea)
+[Block FLoC With Duckduckgo](https://spreadprivacy.com/block-floc-with-duckduckgo/)
+[Am I FLoCed?](https://www.eff.org/deeplinks/2021/04/am-i-floced-launch)
+
 == Installation ==
 
 This plugin has no settings. Simply install and activate it to exlude your website from FLoC tracking.
