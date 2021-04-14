@@ -1,4 +1,4 @@
-=== FLoC off! ===
+=== Disable FLoC ===
 Contributors: roytanck
 Tags: google, floc, cohorts, privacy, tracking
 Requires at least: 5.0
@@ -11,7 +11,7 @@ Disables Google's FLoC tracking for your website's visitors by adding a 'Permiss
  
 == Description ==
 
-This plugin adds a HTTP header to your WordPress website that disables Google's FLoC tracking. The following header will be added:
+This plugin adds a HTTP header to your WordPress website that disables Google's "Federated Learning of Cohorts" tracking. The following header will be added:
 
 `Permissions-Policy: interest-cohort=()`
 
@@ -19,8 +19,8 @@ If an existing 'interest-cohort' value is found, the plugin will not change that
 
 More information about FLoC can be found here:
 
+[What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
 [Federated Learning of Cohorts (FLoC)](https://github.com/WICG/floc)
-[Building a privacy-first future for web advertising](https://blog.google/products/ads-commerce/2021-01-privacy-sandbox/)
 [Google’s FLoC Is a Terrible Idea](https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea)
 [Block FLoC With Duckduckgo](https://spreadprivacy.com/block-floc-with-duckduckgo/)
 [Am I FLoCed?](https://www.eff.org/deeplinks/2021/04/am-i-floced-launch)
