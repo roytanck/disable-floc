@@ -10,46 +10,52 @@
  * License:           GPLv3
  */
 
+namespace RoyTanck\DisableFLoC;
+
 // If called without WordPress, exit.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 
-function disablefloc_add_http_header( $headers ){
+class Plugin {
 
-	// Details of the header we're looking to add.
-	$header_key = 'Permissions-Policy';
-	$header_val = 'interest-cohort=()';
+	public static function add_http_header( $headers ){
 
-	// Check for an existing Permissions-Policy header.
-	if( isset( $headers[ $header_key ] ) ) {
-		
-		// Get the exisiting values of the header.
-		$values = explode( ',', $headers[ $header_key ] );
-		array_map( 'trim', $values );
+		// Details of the header we're looking to add.
+		$header_key = 'Permissions-Policy';
+		$header_val = 'interest-cohort=()';
 
-		// Loop through the values to see if there already is a cohort setting.
-		foreach( $values as $value ) {
-			if( stripos( $value, 'interest-cohort' ) !== false ){
-				// Existing value, so exit.
-				return $headers;
+		// Check for an existing Permissions-Policy header.
+		if( isset( $headers[ $header_key ] ) ) {
+			
+			// Get the exisiting values of the header.
+			$values = \explode( ',', $headers[ $header_key ] );
+			\array_map( 'trim', $values );
+
+			// Loop through the values to see if there already is a cohort setting.
+			foreach( $values as $value ) {
+				if( \stripos( $value, 'interest-cohort' ) !== false ){
+					// Existing value, so exit.
+					return $headers;
+				}
 			}
+			
+			// Not found, so add our value.
+			$values[] = $header_val;
+			$headers[ $header_key ] = \implode( ', ', $values );
+			
+			return $headers;
+
+		} else {
+
+			// No existing Permission-Policy header, so add it.
+			$headers[ $header_key] = $header_val;		
 		}
-		
-		// Not found, so add our value.
-		$values[] = $header_val;
-		$headers[ $header_key ] = implode( ', ', $values );
-		
+
 		return $headers;
-
-	} else {
-
-		// No existing Permission-Policy header, so add it.
-		$headers[ $header_key] = $header_val;		
 	}
 
-	return $headers;
 }
 
-add_filter( 'wp_headers', 'disablefloc_add_http_header' );
+\add_filter( 'wp_headers', [ 'RoyTanck\DisableFLoC\Plugin', 'add_http_header' ] );
