@@ -30,12 +30,12 @@ class Plugin {
 		if( isset( $headers[ $header_key ] ) ) {
 			
 			// Get the exisiting values of the header.
-			$values = \explode( ',', $headers[ $header_key ] );
-			\array_map( 'trim', $values );
+			$values = explode( ',', $headers[ $header_key ] );
+			array_map( 'trim', $values );
 
 			// Loop through the values to see if there already is a cohort setting.
 			foreach( $values as $value ) {
-				if( \stripos( $value, 'interest-cohort' ) !== false ){
+				if( stripos( $value, 'interest-cohort' ) !== false ){
 					// Existing value, so exit.
 					return $headers;
 				}
@@ -43,7 +43,7 @@ class Plugin {
 			
 			// Not found, so add our value.
 			$values[] = $header_val;
-			$headers[ $header_key ] = \implode( ', ', $values );
+			$headers[ $header_key ] = implode( ', ', $values );
 			
 			return $headers;
 
@@ -58,4 +58,4 @@ class Plugin {
 
 }
 
-\add_filter( 'wp_headers', [ 'RoyTanck\DisableFLoC\Plugin', 'add_http_header' ] );
+add_filter( 'wp_headers', [ 'RoyTanck\DisableFLoC\Plugin', 'add_http_header' ] );
