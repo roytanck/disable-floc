@@ -25,9 +25,40 @@ More information about FLoC can be found here:
 [Block FLoC With Duckduckgo](https://spreadprivacy.com/block-floc-with-duckduckgo/)
 [Am I FLoCed?](https://www.eff.org/deeplinks/2021/04/am-i-floced-launch)
 
+
 == Installation ==
 
 This plugin has no settings. Simply install and activate it to exlude your website from FLoC tracking.
+
+
+== Frequently Asked Questions ==
+
+= I'm not using Chrome, why would I use this plugin? =
+
+This plugin does not exclude you (as a user of the web) from FLoC tracking. It excludes your website, and thus protects your website's visitors. Many of them will probably use Chrome.
+ 
+= How can I check if this plugin works? =
+
+This plugin attempts to add an HTTP header. You can use your browser's Dev Tools to check whether it gets added properly.
+
+* Visit any page on your site using the browser of your choice.
+* Press F12, or right-click anywhere on the page and click "Inspect element".
+* Switch to the network tab in the newly opened development tools pane.
+* Turn on recording (if it's not already active), and reload the page.
+* You'll see a number of requests appear as a list. The top one is usually the page itself.
+* Click that line to open up its properties.
+* Look for the header under "Response header".
+ 
+= I don't see the header, what could be wrong? =
+
+HTTP headers can get added or removed on many levels in the server stack.
+
+* By WordPress itself (which is what this plugin does).
+* By the web server (NGINX, Apache, etc).
+* By caching layers, proxies, etc.
+
+There's a known issue with many page caching plugins where the 'hook' that this plugin uses does not work. This is a fundamental issue in WordPress and not something that's easy to work around. If the header does not get added, your best option is to see if it can be added on one of the other levels. Or ask your system administrator to do this for you.
+
  
 == Changelog ==
  
