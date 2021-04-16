@@ -26,10 +26,12 @@ class Plugin {
 	public static function add_http_header( $headers ){
 
 		// Check for an existing Permissions-Policy header.
-		if( isset( $headers[ self::HEADER_KEY ] ) ) {
+		$key = self::find_array_key( self::HEADER_KEY, $headers );
+		
+		if( $key ){
 			
 			// Get the existing values of the header.
-			$values = explode( ',', $headers[ self::HEADER_KEY ] );
+			$values = explode( ',', $headers[ $key ] );
 			$values = array_map( 'trim', $values );
 
 			// Loop through the values to see if there already is a cohort setting.
@@ -42,7 +44,7 @@ class Plugin {
 			
 			// Not found, so add our value.
 			$values[] = self::HEADER_VAL;
-			$headers[ self::HEADER_KEY ] = implode( ', ', $values );
+			$headers[ $key ] = implode( ', ', $values );
 			
 			return $headers;
 
@@ -53,6 +55,18 @@ class Plugin {
 		}
 
 		return $headers;
+	}
+
+
+	// Case-insensitive array key lookup helper method.
+	private static function find_array_key( $key, $array ){
+		$keys = array_keys( $array );
+		foreach( $keys as $k ) {
+			if( strcasecmp( $key, $k ) === 0 ){
+				return $k;
+			}
+		}
+		return false;
 	}
 
 }
