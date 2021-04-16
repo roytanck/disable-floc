@@ -20,18 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Plugin {
 
+	const HEADER_KEY = 'Permissions-Policy';
+	const HEADER_VAL = 'interest-cohort=()';
+
 	public static function add_http_header( $headers ){
 
-		// Details of the header we're looking to add.
-		$header_key = 'Permissions-Policy';
-		$header_val = 'interest-cohort=()';
-
 		// Check for an existing Permissions-Policy header.
-		if( isset( $headers[ $header_key ] ) ) {
+		if( isset( $headers[ self::HEADER_KEY ] ) ) {
 			
-			// Get the exisiting values of the header.
-			$values = explode( ',', $headers[ $header_key ] );
-			array_map( 'trim', $values );
+			// Get the existing values of the header.
+			$values = explode( ',', $headers[ self::HEADER_KEY ] );
+			$values = array_map( 'trim', $values );
 
 			// Loop through the values to see if there already is a cohort setting.
 			foreach( $values as $value ) {
@@ -42,15 +41,15 @@ class Plugin {
 			}
 			
 			// Not found, so add our value.
-			$values[] = $header_val;
-			$headers[ $header_key ] = implode( ', ', $values );
+			$values[] = self::HEADER_VAL;
+			$headers[ self::HEADER_KEY ] = implode( ', ', $values );
 			
 			return $headers;
 
 		} else {
 
 			// No existing Permission-Policy header, so add it.
-			$headers[ $header_key] = $header_val;		
+			$headers[ self::HEADER_KEY ] = self::HEADER_VAL;		
 		}
 
 		return $headers;
