@@ -4,14 +4,14 @@ Tags: google, floc, cohorts, privacy, tracking
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv3
 
 Disables Google's FLoC tracking for your website's visitors by adding a 'Permissions-Policy' HTTP header.
- 
+
 == Description ==
 
-This plugin adds a HTTP header to your WordPress website that disables Google's "Federated Learning of Cohorts" tracking. The following header will be added:
+This plugin adds an HTTP header to your WordPress website that disables Google's "Federated Learning of Cohorts" tracking. The following header will be added:
 
 `Permissions-Policy: interest-cohort=()`
 
@@ -36,7 +36,7 @@ This plugin has no settings. Simply install and activate it to exlude your websi
 = I'm not using Chrome, why would I use this plugin? =
 
 This plugin does not exclude you (as a user of the web) from FLoC tracking. It excludes your website, and thus protects your website's visitors. Many of them will probably use Chrome.
- 
+
 = How can I check if this plugin works? =
 
 This plugin attempts to add an HTTP header. You can use your browser's Dev Tools to check whether it gets added properly.
@@ -48,19 +48,25 @@ This plugin attempts to add an HTTP header. You can use your browser's Dev Tools
 * You'll see a number of requests appear as a list. The top one is usually the page itself.
 * Click that line to open up its properties.
 * Look for the header under "Response headers".
- 
+
+I've also set up an [online FLoC header checker](https://tanck.nl/floc-check). Simply enter your website's homepage URL to see of the header is present.
+
 = I don't see the header, what could be wrong? =
 
-HTTP headers can get added or removed on many levels in the server stack.
+HTTP headers can get added and/or removed on many levels in the server stack.
 
-* By WordPress itself (which is what this plugin does).
+* By WordPress itself (which is what this plugin attempts).
 * By the web server (NGINX, Apache, etc).
 * By caching layers, proxies, etc.
 
-There's a known issue with many page caching plugins where the 'hook' that this plugin uses does not work. This is a fundamental issue in WordPress and not something that's easy to work around. If the header does not get added, your best option is to see if it can be added on one of the other levels. Or ask your system administrator to do this for you.
+Please note that there's a known issue with many page caching plugins where the 'hook' that this plugin uses does not work. This is a fundamental issue in WordPress and not something that's easy to work around. If the header does not get added by this plugin, your best option is to see if it can be added on one of the other levels. Or ask your system administrator to do this for you.
 
- 
+
 == Changelog ==
- 
+
+= 1.1 =
+* Code refactor, including some fixes
+* Added an FAQ to the readme.txt
+
 = 1.0 =
 * Initial release
