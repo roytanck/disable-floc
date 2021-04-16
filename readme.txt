@@ -47,7 +47,7 @@ This plugin attempts to add an HTTP header. You can use your browser's Dev Tools
 * Turn on recording (if it's not already active), and reload the page.
 * You'll see a number of requests appear as a list. The top one is usually the page itself.
 * Click that line to open up its properties.
-* Look for the header under "Response header".
+* Look for the header under "Response headers".
  
 = I don't see the header, what could be wrong? =
 
