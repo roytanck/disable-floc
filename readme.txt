@@ -1,7 +1,7 @@
 === Disable FLoC ===
 Contributors: roytanck
 Tags: google, floc, cohorts, privacy, tracking
-Requires at least: 5.0
+Requires at least: 4.9
 Tested up to: 5.7
 Requires PHP: 5.6
 Stable tag: 1.1

@@ -4,7 +4,7 @@
  * Plugin URI:        https://roytanck.com/?p=453
  * Description:       Disables FLoC tracking for your website's visitors.
  * Version:           1.1
- * Requires at least: 5.0
+ * Requires at least: 4.9
  * Requires PHP:      5.6
  * Author:            Roy Tanck
  * Author URI:        https://roytanck.com
