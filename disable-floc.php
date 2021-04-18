@@ -70,6 +70,19 @@ class Plugin {
 		return false;
 	}
 
+
+	// Add the Permissions-Policy header to WPSC's known headers.
+	public static function add_wpsc_known_header( $headers ) {
+		if( !in_array( self::HEADER_KEY, $headers ) ) {
+			$headers[] = self::HEADER_KEY;
+		}
+		return $headers;
+	}
+
 }
 
+// Use WP's 'wp_headers' hook to add or modify the Permissions-Policy header.
 add_filter( 'wp_headers', [ 'RoyTanck\DisableFLoC\Plugin', 'add_http_header' ] );
+
+// Use a WP Super Cache hook to add support for the Permissions-Policy header.
+add_filter( 'wpsc_known_headers', [ 'RoyTanck\DisableFLoC\Plugin', 'add_wpsc_known_header' ] );
