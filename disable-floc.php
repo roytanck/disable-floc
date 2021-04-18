@@ -3,7 +3,7 @@
  * Plugin Name:       Disable FLoC
  * Plugin URI:        https://roytanck.com/?p=453
  * Description:       Disables FLoC tracking for your website's visitors.
- * Version:           1.1
+ * Version:           1.2
  * Requires at least: 4.9
  * Requires PHP:      5.6
  * Author:            Roy Tanck

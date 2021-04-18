@@ -4,7 +4,7 @@ Tags: google, floc, cohorts, privacy, tracking
 Requires at least: 4.9
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv3
 
 Disables Google's FLoC tracking for your website's visitors by adding a 'Permissions-Policy' HTTP header.
@@ -61,12 +61,17 @@ HTTP headers can get added and/or removed on many levels in the server stack.
 
 Please note that there's a known issue with many page caching plugins where the 'hook' that this plugin uses does not work. This is a fundamental issue in WordPress and not something that's easy to work around. If the header does not get added by this plugin, your best option is to see if it can be added on one of the other levels. Or ask your system administrator to do this for you.
 
+I you're using WP Super Cache, make sure the 'Cache HTTP headers with page content' option is checked.
+
 
 == Changelog ==
 
+= 1.2 =
+* Added support for WP Super Cache when the 'Cache HTTP headers with page content' option is checked.
+
 = 1.1 =
-* Code refactor, including some fixes
-* Added an FAQ to the readme.txt
+* Code refactor, including some fixes.
+* Added an FAQ to the readme.txt.
 
 = 1.0 =
-* Initial release
+* Initial release.
