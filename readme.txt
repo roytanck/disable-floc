@@ -61,17 +61,17 @@ HTTP headers can get added and/or removed on many levels in the server stack.
 
 Please note that there's a known issue with many page caching plugins where the 'hook' that this plugin uses does not work. This is a fundamental issue in WordPress and not something that's easy to work around. If the header does not get added by this plugin, your best option is to see if it can be added on one of the other levels. Or ask your system administrator to do this for you.
 
-I you're using WP Super Cache, make sure the 'Cache HTTP headers with page content' option is checked.
+If you're using WP Super Cache, make sure the 'Cache HTTP headers with page content' option is checked.
 
 
 == Changelog ==
 
-= 1.2 =
+= 1.2 (2021-04-18) =
 * Added support for WP Super Cache when the 'Cache HTTP headers with page content' option is checked.
 
-= 1.1 =
+= 1.1 (2021-04-16) =
 * Code refactor, including some fixes.
 * Added an FAQ to the readme.txt.
 
-= 1.0 =
+= 1.0 (2021-04-14) =
 * Initial release.
