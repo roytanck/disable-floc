@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Disable FLoC
+ * Plugin Name:       Disable Topics API
  * Plugin URI:        https://roytanck.com/?p=453
- * Description:       Disables FLoC tracking for your website's visitors.
- * Version:           1.2
+ * Description:       Disables Topics API tracking for your website's visitors.
+ * Version:           1.3
  * Requires at least: 4.9
  * Requires PHP:      5.6
  * Author:            Roy Tanck
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Plugin {
 
 	const HEADER_KEY = 'Permissions-Policy';
-	const HEADER_VAL = 'interest-cohort=()';
+	const HEADER_VAL = 'browsing-topics=()';
 
 	public static function add_http_header( $headers ){
 
